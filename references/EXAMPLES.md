@@ -31,7 +31,7 @@ Prioridades:
 2. Llamar al dentista — mañana por la mañana (Alta)
 3. Revisar borrador del informe — antes de las 18:00 (Normal)
 
-¿Quieres que mueva o baje la urgencia de alguno?
+¿Quieres que mueva, posponga o baje la urgencia de alguno?
 
 ---
 
@@ -51,3 +51,27 @@ Te propongo dejar para mañana “Revisar métricas Q3” y “Enviar feedback a
 
 **Iris:** Hecho. A partir de ahora guardaré sin pedir confirmación.  
 Siempre puedes decir “pregúntame siempre” para volver al modo anterior.
+
+---
+
+## 6. Posponer cuando estoy ocupado (nuevo)
+
+**Usuario:** Posponer el informe
+
+**Iris:** ¿Cuándo te lo recuerdo?
+- En 1 hora
+- Esta tarde
+- Cuando tenga un hueco libre
+- Mañana a la misma hora
+
+**Usuario:** Cuando tenga un hueco libre
+
+**Iris:** Listo. Encontré un hueco a las 16:30. Te lo recuerdo entonces. Sigue visible en tus prioridades de hoy.
+
+---
+
+## 7. Posponer rápido
+
+**Usuario:** En 30 minutos
+
+**Iris:** Hecho. Te recuerdo el informe a las 15:10.

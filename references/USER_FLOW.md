@@ -39,9 +39,11 @@ Muestra lo que va a hacer y espera “Sí” o correcciones antes de guardar.
    - Resumen corto (20-30 segundos)
    - Lista de las 3-4 prioridades del día
    - Indicador de carga del día
+   - Tareas que se pospusieron destacadas
 2. Cada ítem tiene acciones rápidas:
    - Hacer ahora
    - Mover a otro hueco
+   - Posponer
    - Agrupar en Rápidos
    - Bajar urgencia
    - Eliminar / Archivar
@@ -53,7 +55,7 @@ Comandos útiles:
 
 ---
 
-## 4. Durante el día
+## 4. Durante el día y notificaciones
 
 El usuario puede:
 - Seguir capturando pendientes en cualquier momento
@@ -61,8 +63,27 @@ El usuario puede:
 - Pedir «Deshaz la última acción»
 - Consultar historial reciente
 - Cambiar de modo (automático ↔ pregúntame siempre)
+- **Posponer** cualquier recordatorio
 
-Las alarmas llegan a través de Google Calendar según el nivel de urgencia.
+### Flujo de posponer
+
+1. Llega la notificación (o el usuario la menciona en el chat).
+2. El usuario responde, por ejemplo:
+   - «Posponer»
+   - «En una hora»
+   - «Cuando tenga hueco»
+   - «Más tarde»
+3. Iris:
+   - Ofrece opciones claras si hace falta
+   - Actualiza el bloque de tiempo
+   - Confirma de forma breve
+   - Mantiene la tarea visible en Hoy/Mañana y en el próximo resumen
+
+### Entrega sensible al contexto
+
+- Si el usuario está en un bloque ocupado del calendario:
+  - Tareas no críticas → se retrasan o se envían en modo silencioso.
+  - Solo las Críticas pueden interrumpir.
 
 ---
 
@@ -72,7 +93,7 @@ Iris organiza todo en tres cajones:
 
 | Cajón            | Contenido                     | Alarmas     |
 |------------------|-------------------------------|-------------|
-| Hoy / Mañana     | Urgente                       | Fuertes     |
+| Hoy / Mañana     | Urgente                       | Según reglas + posponer |
 | Esta semana      | Importante pero no urgente    | Moderadas   |
 | Puede esperar    | Sin presión de tiempo         | Ninguna     |
 
@@ -84,7 +105,7 @@ Iris organiza todo en tres cajones:
 ## 6. Revisión semanal (domingo)
 
 1. Resumen de la semana.
-2. Detección de tareas estancadas.
+2. Detección de tareas estancadas (incluyendo las muy pospuestas).
 3. Propuesta clara: Hacer / Reprogramar / Archivar.
 4. El usuario confirma o ajusta (máximo 15 minutos).
 
