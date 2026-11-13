@@ -1,5 +1,7 @@
 # Ejemplos de conversación — Iris
 
+**Versión:** 1.2.0
+
 ## 1. Captura simple
 
 **Usuario:** Mañana a las 10 reunión con Ana sobre el presupuesto.
@@ -9,69 +11,72 @@
 
 ---
 
-## 2. Varios pendientes seguidos
-
-**Usuario:** El jueves entregar el informe del proyecto, comprar regalo para el cumpleaños de Martín esta semana y llamar al dentista mañana.
-
-**Iris:** Tres tareas guardadas:  
-• Entregar informe del proyecto — jueves — Normal — 1 h 30 min  
-• Comprar regalo cumpleaños Martín — esta semana — Baja  
-• Llamar al dentista — mañana — Alta — 10 min (se agrupará en Rápidos)
-
----
-
-## 3. Resumen del día
+## 2. Resumen del día (con reuniones)
 
 **Usuario:** ¿Qué tengo hoy?
 
-**Iris:** Hoy tienes 3 bloques importantes + 15 min de rápidos. Te quedan 1 h 50 min libres.
+**Iris:** Hoy: 2 reuniones + 3 bloques de trabajo.
+
+• 10:00 – Reunión con Ana (presupuesto)  
+• 15:30 – Sync de equipo
 
 Prioridades:
-1. Reunión con Ana — 10:00 (Alta)
-2. Llamar al dentista — mañana por la mañana (Alta)
+1. Preparar cifras Q4 — antes de las 10:00 (Alta)
+2. Enviar feedback a diseño — esta mañana (Normal)
 3. Revisar borrador del informe — antes de las 18:00 (Normal)
 
-¿Quieres que mueva, posponga o baje la urgencia de alguno?
+Tienes ~1 h 15 min libres entre la reunión de las 10 y la de las 15:30.
+¿Quieres que mueva o posponga alguno?
 
 ---
 
-## 4. Día sobrecargado
-
-**Usuario:** Resumen del día
-
-**Iris:** Hoy se ve pesado: 5 bloques importantes.  
-Te propongo dejar para mañana “Revisar métricas Q3” y “Enviar feedback a diseño”.  
-¿Te parece bien o prefieres otra combinación?
-
----
-
-## 5. Cambio de modo
-
-**Usuario:** Pasa a modo automático.
-
-**Iris:** Hecho. A partir de ahora guardaré sin pedir confirmación.  
-Siempre puedes decir “pregúntame siempre” para volver al modo anterior.
-
----
-
-## 6. Posponer cuando estoy ocupado (nuevo)
-
-**Usuario:** Posponer el informe
-
-**Iris:** ¿Cuándo te lo recuerdo?
-- En 1 hora
-- Esta tarde
-- Cuando tenga un hueco libre
-- Mañana a la misma hora
+## 3. Posponer respetando reuniones
 
 **Usuario:** Cuando tenga un hueco libre
 
-**Iris:** Listo. Encontré un hueco a las 16:30. Te lo recuerdo entonces. Sigue visible en tus prioridades de hoy.
+**Iris:** Tienes reunión a las 10:00. El próximo hueco libre de 45 min es a las 11:15. ¿Te lo dejo ahí?
+
+**Usuario:** Sí
+
+**Iris:** Listo. Te lo recuerdo a las 11:15. Sigue visible en tus prioridades de hoy.
 
 ---
 
-## 7. Posponer rápido
+## 4. Prepárame para la próxima reunión
+
+**Usuario:** Prepárame para la próxima reunión
+
+**Iris:** Próxima reunión a las 10:00 – con Ana (presupuesto Q4).
+
+Tareas relacionadas abiertas:
+• Preparar cifras Q4 (Alta)
+
+Tienes unos 25 min libres justo antes.  
+¿Quieres que deje esa tarea como prioridad inmediata o la posponemos?
+
+---
+
+## 5. ¿Qué tengo a las 10?
+
+**Usuario:** ¿Qué tengo a las 10?
+
+**Iris:** A las 10:00 – Reunión con Ana sobre presupuesto Q4.  
+Tienes el pendiente “Preparar cifras Q4” todavía abierto.
+
+---
+
+## 6. Posponer rápido
 
 **Usuario:** En 30 minutos
 
 **Iris:** Hecho. Te recuerdo el informe a las 15:10.
+
+---
+
+## 7. Día sobrecargado
+
+**Usuario:** Resumen del día
+
+**Iris:** Hoy se ve pesado: 2 reuniones + 5 bloques importantes.  
+Te propongo dejar para mañana “Revisar métricas Q3” y “Enviar feedback a diseño”.  
+¿Te parece bien?

@@ -1,5 +1,7 @@
 # Flujo de uso de Iris
 
+**Versión:** 1.2.0 (contexto de reuniones)
+
 ## 1. Primer uso (Onboarding – 60-90 segundos)
 
 1. El usuario abre el cliente MCP y escribe o dice:  
@@ -12,109 +14,94 @@
    - Si faltan → guía la autorización OAuth paso a paso.
    - Si ya están → pasa a la primera captura.
 
-4. (Opcional) Pregunta plataforma solo para adaptar ejemplos:  
-   «¿Usas iPhone o Android?»
+4. (Opcional) Pregunta plataforma solo para adaptar ejemplos.
 
 5. Invita a la primera captura con confirmación explícita.
 
 ---
 
-## 2. Captura de pendientes (uso principal)
+## 2. Captura de pendientes
 
-**Modo automático (después de ganar confianza):**
-
-1. El usuario dicta uno o varios pendientes seguidos.
-2. Iris procesa el lote completo (modo dictado continuo).
-3. Responde de inmediato con feedback claro (voz + detalle estructurado).
-4. Solo pregunta si falta información crítica.
-
-**Modo confirmación (primeros usos o por preferencia del usuario):**  
-Muestra lo que va a hacer y espera “Sí” o correcciones antes de guardar.
+- Dictado continuo de uno o varios pendientes.
+- Feedback inmediato con fecha, urgencia, duración y bloque si aplica.
+- Confirmación progresiva según el modo del usuario.
 
 ---
 
-## 3. Resumen diario (mañana o bajo demanda)
+## 3. Resumen diario (con reuniones)
 
-1. Iris entrega:
-   - Resumen corto (20-30 segundos)
-   - Lista de las 3-4 prioridades del día
-   - Indicador de carga del día
-   - Tareas que se pospusieron destacadas
-2. Cada ítem tiene acciones rápidas:
-   - Hacer ahora
-   - Mover a otro hueco
-   - Posponer
-   - Agrupar en Rápidos
-   - Bajar urgencia
-   - Eliminar / Archivar
-3. Si el día está pesado, propone proactivamente qué reorganizar.
+Cuando el usuario pide “¿Qué tengo hoy?” o “Resumen del día”:
 
-Comandos útiles:
-- «Resumen del día»
-- «¿Qué tengo hoy?»
+1. Iris consulta el calendario y las tareas.
+2. Entrega:
+   - Reuniones del día (hora + título)
+   - 3-4 prioridades de trabajo
+   - Tiempo libre aproximado
+   - Tareas pospuestas destacadas
+3. Ofrece acciones rápidas: Hacer ahora / Mover / Posponer / etc.
+
+Ejemplo de estructura de respuesta:
+> Hoy: 2 reuniones + 3 bloques de trabajo.
+> • 10:00 – Reunión con Ana (presupuesto)
+> • 15:30 – Sync de equipo
+> Prioridades: …
+> Tienes ~1 h 20 min libres entre reuniones.
 
 ---
 
-## 4. Durante el día y notificaciones
+## 4. Posponer respetando reuniones
 
-El usuario puede:
-- Seguir capturando pendientes en cualquier momento
-- Pedir «Muéstrame los cajones»
-- Pedir «Deshaz la última acción»
-- Consultar historial reciente
-- Cambiar de modo (automático ↔ pregúntame siempre)
-- **Posponer** cualquier recordatorio
-
-### Flujo de posponer
-
-1. Llega la notificación (o el usuario la menciona en el chat).
-2. El usuario responde, por ejemplo:
-   - «Posponer»
-   - «En una hora»
-   - «Cuando tenga hueco»
-   - «Más tarde»
-3. Iris:
-   - Ofrece opciones claras si hace falta
-   - Actualiza el bloque de tiempo
+1. Usuario: “Posponer” / “Cuando tenga hueco” / “En una hora”
+2. Iris:
+   - Mira el calendario
+   - Evita solaparse con reuniones
+   - Propone o ejecuta el nuevo horario
    - Confirma de forma breve
    - Mantiene la tarea visible en Hoy/Mañana y en el próximo resumen
 
-### Entrega sensible al contexto
+---
 
-- Si el usuario está en un bloque ocupado del calendario:
-  - Tareas no críticas → se retrasan o se envían en modo silencioso.
-  - Solo las Críticas pueden interrumpir.
+## 5. Preparación de reuniones bajo demanda
+
+Comandos:
+- “Prepárame para la próxima reunión”
+- “¿Qué tengo a las 10?”
+- “Contexto de la reunión con Ana”
+
+Iris responde de forma concisa con:
+- Título + hora (+ asistentes si están)
+- Tareas abiertas relacionadas (si las hay)
+- Tiempo libre justo antes
+- Acciones rápidas opcionales
+
+No inventa el contenido de la reunión.
 
 ---
 
-## 5. Gestión de muchos pendientes
+## 6. Durante el día
 
-Iris organiza todo en tres cajones:
+El usuario puede:
+- Seguir capturando pendientes
+- Pedir cajones / resumen / deshacer
+- Posponer cualquier recordatorio
+- Pedir contexto de una reunión concreta
+- Cambiar de modo (automático ↔ pregúntame siempre)
 
-| Cajón            | Contenido                     | Alarmas     |
-|------------------|-------------------------------|-------------|
-| Hoy / Mañana     | Urgente                       | Según reglas + posponer |
-| Esta semana      | Importante pero no urgente    | Moderadas   |
-| Puede esperar    | Sin presión de tiempo         | Ninguna     |
-
-- Tareas < 10 min → se agrupan en bloque «Rápidos»
-- Si hay más de 3-4 importantes en un día → avisa y ofrece reorganizar
+Las notificaciones respetan los bloques de reunión (salvo tareas Críticas).
 
 ---
 
-## 6. Revisión semanal (domingo)
+## 7. Tres cajones y revisión semanal
 
-1. Resumen de la semana.
-2. Detección de tareas estancadas (incluyendo las muy pospuestas).
-3. Propuesta clara: Hacer / Reprogramar / Archivar.
-4. El usuario confirma o ajusta (máximo 15 minutos).
+Sin cambios de fondo:
+- Hoy/Mañana | Esta semana | Puede esperar
+- Tope de 3-4 importantes
+- Rápidos (< 10 min)
+- Revisión semanal de tareas estancadas (incluyendo las muy pospuestas)
 
 ---
 
-## 7. Evolución de la confianza
+## 8. Evolución de la confianza
 
-Después de varias interacciones correctas, Iris pregunta:
-
-«¿Quieres que pase a modo automático? Siempre podrás pedirme que te pregunte otra vez.»
-
-El usuario puede cambiar de modo cuando quiera.
+Después de varias interacciones correctas, Iris puede ofrecer el modo automático.
+El usuario puede volver a “pregúntame siempre” en cualquier momento.
