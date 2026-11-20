@@ -1,75 +1,77 @@
-# Reglas de urgencia, alarmas y posponer — Iris
+# Reglas de urgencia, avisos y recuperación — Iris
 
-## Niveles de urgencia
+**Versión:** 1.3.0
 
-| Nivel     | Criterio                              | Alarmas en Google Calendar                     | Comportamiento |
-|-----------|---------------------------------------|------------------------------------------------|----------------|
-| **Crítica** | Vence en menos de 24 horas           | 3 horas antes + 1 hora antes + al iniciar     | Puede interrumpir aunque el usuario esté ocupado |
-| **Alta**    | Vence en 1 a 3 días                  | Día anterior + 1 hora antes                   | Preferir momentos libres |
-| **Normal**  | Vence en 4 a 14 días                 | Solo al iniciar el bloque                     | Una sola notificación suave |
-| **Baja**    | Sin fecha dura o más de 14 días      | Solo aparece el bloque (sin sonar)            | Sin ruido |
+## Objetivo
 
-## Entrega sensible al contexto
+El usuario debe enterarse **a tiempo**. Preferible un aviso un poco antes a perder la actividad.
 
-Antes de enviar una alarma con sonido:
+## Niveles de urgencia + avisos
 
-1. Revisar el calendario del usuario.
-2. Si está en reunión o bloque ocupado:
-   - **Crítica** → puede interrumpir.
-   - Resto de niveles → retrasar 15-30 min después del bloque, enviar notificación silenciosa, o dejar solo el bloque visible.
-3. Respetar “No molestar” cuando sea detectable.
+| Nivel | Criterio | Avisos | Puede interrumpir si ocupado |
+|-------|----------|--------|------------------------------|
+| **Crítica** | < 24 h | 3 h antes + 1 h antes + 10–15 min antes + recuperación | Sí |
+| **Alta** | 1–3 días | Día anterior + 1 h antes + 10–15 min antes | Preferir no; si es hora fija, sí el cercano |
+| **Normal** | 4–14 días o con hora fija | 15–30 min antes + 10–15 min antes (o al inicio si es solo trabajo) | No (salvo hora fija muy próxima) |
+| **Baja** | Sin hora dura o > 14 días | Solo bloque visible | No |
 
-## Escalado suave
+## Anticipación por tipo
 
-| Momento                              | Tipo de aviso                          | Invasión |
-|--------------------------------------|----------------------------------------|----------|
-| Varias horas antes                   | Solo bloque en calendario (sin sonido) | Muy baja |
-| 1-2 horas antes (usuario libre)      | Notificación suave                     | Baja     |
-| Cerca del deadline                   | Notificación más clara                 | Media    |
-| Después de un posponer               | Nuevo bloque + recordatorio suave      | Baja     |
+| Tipo | Aviso temprano | Aviso cercano |
+|------|----------------|---------------|
+| Reunión / cita | 30 min | 10–15 min |
+| Preparación / entrega / llamada | 30–45 min | 10–15 min |
+| Bloque de trabajo | 15 min | Al inicio (opcional) |
+| Rápidos (< 10 min) | — | Al inicio del bloque Rápidos |
 
-## Posponer (snooze inteligente)
+Inferir por título (reunión, call, entrega, médico, salir…). Si hay hora fija y no está claro → tratar como preparación.
 
-Opciones estándar que Iris debe ofrecer o entender:
+## Doble aviso
 
-- En 15 / 30 / 60 minutos
-- Esta tarde
-- Mañana a la misma hora
-- Cuando tenga un hueco libre (buscar próximo bloque disponible)
-- Después de la reunión / bloque actual
+1. **Temprano** — con margen según tipo.
+2. **Cercano** — 10–15 min antes (o al inicio).
 
-Comportamiento al posponer:
+Si el usuario responde al temprano (pospone, “voy”, “lo vi”), se puede cancelar o suavizar el cercano.
 
-- Actualizar o crear el bloque de tiempo en el calendario.
-- Mantener la tarea visible en el cajón **Hoy / Mañana**.
-- Confirmar de forma breve.
-- Incluir la tarea de forma destacada en el próximo resumen diario.
-- No bajar automáticamente la urgencia salvo que el usuario lo pida.
+## Recuperación (si no se entera / no responde)
 
-## “Lo vi, pero después”
+- Tras el aviso cercano, si no hay interacción en ~10–20 min o pasó la hora de inicio:
+  - **Una** recuperación: «No supe de ti con [tarea]. ¿Ahora, movemos o más tarde?»
+- Máximo una recuperación por tarea (Crítica: hasta dos).
+- Mantener la tarea en Hoy/Mañana y en el resumen.
 
-Si el usuario solo dice “lo vi”, “más tarde” o similar:
+## Señal “en riesgo” (resumen diario)
 
-- No eliminar ni archivar la tarea.
-- No bajar la prioridad automáticamente.
-- Mantenerla visible en el cajón de Hoy/Mañana.
-- Destacarla en el siguiente resumen diario.
-- Opcionalmente preguntar más tarde de forma suave si no ha avanzado.
+Marcar tareas de las próximas horas sin avance ni confirmación:
 
-## Reglas adicionales
+> Ojo: “Enviar informe” es a las 11:00 y aún no la has tocado.
 
-- El usuario puede silenciar temporalmente un tipo de alarma (“Hoy no me avises de las normales”).
-- Las tareas de menos de 10 minutos se agrupan en un único bloque llamado **«Rápidos»** con una sola alarma.
-- Se aplica un margen de seguridad inicial del ~25 % sobre la duración estimada.
-- Con el tiempo, Iris ajusta este margen comparando duración estimada vs duración real.
-- Iris puede aprender las preferencias de aplazamiento del usuario (qué opción usa más) y proponerla por defecto.
+Acciones rápidas: Hacer / Posponer / Prepárame.
 
-## Asignación automática de urgencia
+## Posponer
 
-Iris asigna el nivel según:
-1. Fecha límite declarada o inferida
-2. Proximidad temporal
-3. Impacto percibido (si el usuario lo indica)
-4. Patrones aprendidos del usuario
+Opciones: 15 / 30 / 60 min · Esta tarde · Mañana misma hora · Hueco libre (sin choques con reuniones) · Después del bloque actual.
 
-El usuario siempre puede corregir el nivel de urgencia después de la creación.
+- Actualizar bloque en calendario.
+- Seguir visible en Hoy/Mañana.
+- Destacar en el próximo resumen.
+- No bajar urgencia sola.
+
+## Entrega si el usuario está ocupado
+
+- **Crítica:** puede sonar.
+- **Resto:** retraso corto del sonido permitido, pero no borrar el aviso cercano ni la recuperación.
+- Respetar No molestar si es detectable (excepto Crítica).
+
+## “Lo vi / más tarde”
+
+No eliminar ni bajar prioridad. Visible en cajón y resumen. Puede disparar recuperación después.
+
+## Asignación de urgencia
+
+1. Fecha límite / hora  
+2. Proximidad  
+3. Impacto que indique el usuario  
+4. Patrones (más adelante)
+
+El usuario puede corregir el nivel siempre.
