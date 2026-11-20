@@ -1,6 +1,6 @@
 # Flujo de uso de Iris
 
-**Versión:** 1.3.0 (avisos a tiempo)
+**Versión:** 1.4.0 (send-time optimization)
 
 ## 1. Onboarding
 
@@ -25,11 +25,15 @@ Incluye:
 - Tiempo libre
 - Acciones: Hacer / Mover / Posponer / etc.
 
+Preferir entregarlo en la franja en la que el usuario suele responder (send-time), si se conoce.
+
 ## 4. Ciclo de aviso (para no perder la actividad)
 
-1. **Aviso temprano** (30–45 min o según tipo).
+Los avisos **tempranos** y el resumen pueden alinearse a las franjas en las que sueles responder (send-time optimization). Los avisos **cercanos** a una hora fija no se retrasan.
+
+1. **Aviso temprano** (30–45 min o según tipo; micro-ajuste a franja de atención si aplica).
 2. Usuario puede: Voy / Posponer / Lo vi.
-3. Si no responde → **aviso cercano** (10–15 min antes).
+3. Si no responde → **aviso cercano** (10–15 min antes) — no se optimiza lejos del evento.
 4. Si sigue sin respuesta → **una recuperación** breve con opciones.
 5. La tarea no desaparece del cajón Hoy ni del resumen.
 

@@ -1,6 +1,6 @@
 # Reglas de urgencia, avisos y recuperación — Iris
 
-**Versión:** 1.3.0
+**Versión:** 1.4.0
 
 ## Objetivo
 
@@ -66,6 +66,31 @@ Opciones: 15 / 30 / 60 min · Esta tarde · Mañana misma hora · Hueco libre (s
 ## “Lo vi / más tarde”
 
 No eliminar ni bajar prioridad. Visible en cajón y resumen. Puede disparar recuperación después.
+
+## Send-time optimization
+
+### Principio
+Optimizar el momento de entrega según cuándo el usuario suele atender, **sin** retrasar avisos que pongan en riesgo una hora fija.
+
+### Aplicar send-time a
+- Resumen diario proactivo
+- Avisos tempranos de tareas flexibles (sin cita rígida)
+- Recuperaciones y “en riesgo”, si aún hay margen antes de la actividad
+- Nudges del cajón Hoy no críticos
+
+### No retrasar (hora del evento manda)
+- Reuniones / citas
+- Aviso cercano (10–15 min antes)
+- Crítica cuando el plazo está encima
+
+### Micro-ajuste permitido
+En el aviso **temprano** de una actividad con hora, se puede elegir el minuto dentro de una ventana (ej. entre 25 y 40 min antes) si hay franja de alta atención del usuario. El aviso **cercano** no se aleja del evento.
+
+### Quiet hours
+Por defecto 22:00–7:00 hora local. Solo Crítica o citas inminentes atraviesan quiet hours.
+
+### Sin historial
+Usar anticipación fija por tipo (tablas de arriba) hasta tener señales de respuesta del usuario.
 
 ## Asignación de urgencia
 

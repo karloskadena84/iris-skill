@@ -1,6 +1,6 @@
 # Ejemplos de conversación — Iris
 
-**Versión:** 1.3.0
+**Versión:** 1.4.0
 
 ## 1. Captura con hora fija
 
@@ -79,3 +79,19 @@ Tienes ~25 min libres antes. ¿La dejamos como prioridad inmediata?
 **Usuario:** En 30 minutos
 
 **Iris:** Hecho. Te aviso unos minutos antes de las 15:10.
+
+---
+
+## 8. Send-time (resumen en mejor franja)
+
+**Iris:** (por la mañana, en la franja en la que sueles responder)  
+Buenos días. Resumen de hoy: 1 reunión a las 10:00 y 3 prioridades.  
+Ojo: “Preparar cifras Q4” es antes de las 10:00. ¿La atacamos ahora?
+
+---
+
+## 9. Por qué este horario
+
+**Usuario:** ¿Por qué me avisaste a esta hora?
+
+**Iris:** Porque suele ser cuando más respondes. La reunión sigue a las 10:00; este era solo el aviso temprano.
