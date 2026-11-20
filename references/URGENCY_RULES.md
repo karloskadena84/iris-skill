@@ -1,6 +1,6 @@
 # Reglas de urgencia, avisos y recuperación — Iris
 
-**Versión:** 1.4.0
+**Versión:** 1.4.1
 
 ## Objetivo
 
@@ -24,79 +24,40 @@ El usuario debe enterarse **a tiempo**. Preferible un aviso un poco antes a perd
 | Bloque de trabajo | 15 min | Al inicio (opcional) |
 | Rápidos (< 10 min) | — | Al inicio del bloque Rápidos |
 
-Inferir por título (reunión, call, entrega, médico, salir…). Si hay hora fija y no está claro → tratar como preparación.
-
 ## Doble aviso
 
 1. **Temprano** — con margen según tipo.
 2. **Cercano** — 10–15 min antes (o al inicio).
 
-Si el usuario responde al temprano (pospone, “voy”, “lo vi”), se puede cancelar o suavizar el cercano.
+Si el usuario responde al temprano, se puede suavizar el cercano.
 
-## Recuperación (si no se entera / no responde)
+## Recuperación
 
-- Tras el aviso cercano, si no hay interacción en ~10–20 min o pasó la hora de inicio:
-  - **Una** recuperación: «No supe de ti con [tarea]. ¿Ahora, movemos o más tarde?»
-- Máximo una recuperación por tarea (Crítica: hasta dos).
-- Mantener la tarea en Hoy/Mañana y en el resumen.
+Una recuperación si no hay respuesta tras el cercano (~10–20 min) o pasó la hora. Crítica: hasta dos. Mantener en Hoy/Mañana y resumen.
 
-## Señal “en riesgo” (resumen diario)
+## Señal “en riesgo”
 
-Marcar tareas de las próximas horas sin avance ni confirmación:
-
-> Ojo: “Enviar informe” es a las 11:00 y aún no la has tocado.
-
-Acciones rápidas: Hacer / Posponer / Prepárame.
+En el resumen: tareas próximas sin avance. Acciones: Hacer / Posponer / Prepárame.
 
 ## Posponer
 
-Opciones: 15 / 30 / 60 min · Esta tarde · Mañana misma hora · Hueco libre (sin choques con reuniones) · Después del bloque actual.
-
-- Actualizar bloque en calendario.
-- Seguir visible en Hoy/Mañana.
-- Destacar en el próximo resumen.
-- No bajar urgencia sola.
-
-## Entrega si el usuario está ocupado
-
-- **Crítica:** puede sonar.
-- **Resto:** retraso corto del sonido permitido, pero no borrar el aviso cercano ni la recuperación.
-- Respetar No molestar si es detectable (excepto Crítica).
-
-## “Lo vi / más tarde”
-
-No eliminar ni bajar prioridad. Visible en cajón y resumen. Puede disparar recuperación después.
+15/30/60 min · Esta tarde · Mañana · Hueco libre (sin choques) · Después del bloque actual.
 
 ## Send-time optimization
 
-### Principio
-Optimizar el momento de entrega según cuándo el usuario suele atender, **sin** retrasar avisos que pongan en riesgo una hora fija.
+Optimizar entrega según franjas de atención del usuario **sin** retrasar citas ni aviso cercano. Quiet hours 22:00–7:00. Sin historial: anticipación fija por tipo.
 
-### Aplicar send-time a
-- Resumen diario proactivo
-- Avisos tempranos de tareas flexibles (sin cita rígida)
-- Recuperaciones y “en riesgo”, si aún hay margen antes de la actividad
-- Nudges del cajón Hoy no críticos
+## Bad-timing por reglas (sin modelo externo)
 
-### No retrasar (hora del evento manda)
-- Reuniones / citas
-- Aviso cercano (10–15 min antes)
-- Crítica cuando el plazo está encima
+### Señales de mal momento
+1. Quiet hours (22:00–7:00 local), salvo Crítica o cita ≤30 min.
+2. Usuario en reunión/bloque ocupado (Calendar), salvo Crítica.
+3. Acaba de posponer/ignorar la misma tarea (~20 min).
+4. Ráfaga: nudge no crítico muy reciente.
+5. Fuera de franja de atención conocida y el aviso puede esperar.
 
-### Micro-ajuste permitido
-En el aviso **temprano** de una actividad con hora, se puede elegir el minuto dentro de una ventana (ej. entre 25 y 40 min antes) si hay franja de alta atención del usuario. El aviso **cercano** no se aleja del evento.
-
-### Quiet hours
-Por defecto 22:00–7:00 hora local. Solo Crítica o citas inminentes atraviesan quiet hours.
-
-### Sin historial
-Usar anticipación fija por tipo (tablas de arriba) hasta tener señales de respuesta del usuario.
-
-## Asignación de urgencia
-
-1. Fecha límite / hora  
-2. Proximidad  
-3. Impacto que indique el usuario  
-4. Patrones (más adelante)
-
-El usuario puede corregir el nivel siempre.
+### Política
+- **Siempre enviar:** Crítica, aviso cercano (10–15 min), usuario en chat activo, pedido explícito.
+- **Puede retrasar:** resumen, temprano flexible, recuperación si aún hay margen antes de la actividad.
+- **Micro-ajuste solo:** aviso temprano de cita dentro de la ventana de anticipación.
+- No usar señales inventadas (batería, pantalla) si el canal no las aporta.

@@ -1,58 +1,33 @@
 # Flujo de uso de Iris
 
-**Versión:** 1.4.0 (send-time optimization)
+**Versión:** 1.4.1 (bad-timing por reglas)
 
 ## 1. Onboarding
 
-1. Usuario abre el cliente y pide organizar pendientes.
-2. Iris se presenta y verifica MCP Todoist + Google Calendar (guía OAuth si faltan).
-3. Primera captura con confirmación.
-4. Puede decir: «Te avisaré con margen para que no se te pasen las cosas.»
+1. Verificar MCP Todoist + Google Calendar.
+2. Primera captura con confirmación.
+3. Mencionar avisos con margen.
 
 ## 2. Captura
 
-- Uno o varios pendientes seguidos.
-- Feedback inmediato (fecha, urgencia, duración, bloque).
-- Si parece reunión/cita o tiene hora fija → aplicar anticipación por tipo.
+Dictado continuo, feedback inmediato, anticipación por tipo si hay hora fija.
 
 ## 3. Resumen diario
 
-Incluye:
-- Reuniones (hora + título)
-- 3–4 prioridades
-- **En riesgo** (próximas horas sin avance)
-- Pospuestas
-- Tiempo libre
-- Acciones: Hacer / Mover / Posponer / etc.
+Reuniones + prioridades + en riesgo + pospuestas + tiempo libre. Preferir franja de atención del usuario.
 
-Preferir entregarlo en la franja en la que el usuario suele responder (send-time), si se conoce.
+## 4. Ciclo de aviso
 
-## 4. Ciclo de aviso (para no perder la actividad)
+Los avisos **tempranos** y el resumen pueden alinearse a franjas de atención (send-time). Los avisos **cercanos** no se retrasan.
 
-Los avisos **tempranos** y el resumen pueden alinearse a las franjas en las que sueles responder (send-time optimization). Los avisos **cercanos** a una hora fija no se retrasan.
+Antes de un aviso no crítico, Iris aplica **bad-timing por reglas** (quiet hours, reunión en curso, ráfaga, fuera de franja). Si es mal momento y puede esperar, retrasa dentro de la ventana permitida.
 
-1. **Aviso temprano** (30–45 min o según tipo; micro-ajuste a franja de atención si aplica).
-2. Usuario puede: Voy / Posponer / Lo vi.
-3. Si no responde → **aviso cercano** (10–15 min antes) — no se optimiza lejos del evento.
-4. Si sigue sin respuesta → **una recuperación** breve con opciones.
-5. La tarea no desaparece del cajón Hoy ni del resumen.
+1. Aviso temprano (con posible micro-ajuste).
+2. Voy / Posponer / Lo vi.
+3. Aviso cercano (10–15 min) — siempre si hay hora fija.
+4. Una recuperación si no hay respuesta.
+5. La tarea sigue en Hoy/Mañana y en el resumen.
 
-## 5. Posponer
+## 5–8. Posponer, prepárame, cajones, confianza
 
-- Respeta reuniones al buscar huecos.
-- Confirma el nuevo horario.
-- Sigue en Hoy/Mañana y en el próximo resumen.
-
-## 6. Preparación de reuniones
-
-- “Prepárame para la próxima reunión” / “¿Qué tengo a las 10?”
-- Título, hora, tareas relacionadas, hueco antes, acciones.
-
-## 7. Durante el día
-
-Capturar · cajones · deshacer · posponer · “voy” / “voy tarde” · modo automático o “pregúntame siempre”.
-
-## 8. Cajones y semana
-
-Hoy/Mañana · Esta semana · Puede esperar.  
-Tope 3–4 importantes. Rápidos agrupados. Revisión semanal de estancadas.
+Sin cambios de fondo respecto a v1.3–1.4.
