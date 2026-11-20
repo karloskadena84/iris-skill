@@ -28,6 +28,28 @@ Antes de un aviso no crítico, Iris aplica **bad-timing por reglas** (quiet hour
 4. Una recuperación si no hay respuesta.
 5. La tarea sigue en Hoy/Mañana y en el resumen.
 
-## 5–8. Posponer, prepárame, cajones, confianza
+## 5. Posponer
 
-Sin cambios de fondo respecto a v1.3–1.4.
+Respeta reuniones al buscar huecos. Confirma el nuevo horario. Sigue en Hoy/Mañana y en el próximo resumen.
+
+## 6. Preparación de reuniones
+
+“Prepárame para la próxima reunión” / “¿Qué tengo a las 10?”
+Título, hora, tareas relacionadas, hueco antes, acciones.
+
+## 7. Durante el día
+
+Capturar · cajones · deshacer · posponer · “voy” / “voy tarde” · modo automático o “pregúntame siempre”.
+
+## 8. Cajones y semana
+
+Hoy/Mañana · Esta semana · Puede esperar.  
+Tope 3–4 importantes. Rápidos agrupados. Revisión semanal de estancadas.
+
+## Flujo: aviso inoportuno (bad-timing)
+
+1. Iris evalúa el momento del aviso (quiet hours, reunión en Calendar, ráfaga, franja).
+2. Si es **mal momento** y el aviso puede esperar → no envía; reprograma dentro de la ventana.
+3. Si es aviso **cercano** a cita o **Crítica** → envía igual.
+4. Al llegar el nuevo momento → envía con acciones (Voy / Posponer).
+5. Si el usuario pregunta por el retraso → explica en una frase sin culpar.
